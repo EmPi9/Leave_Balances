@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+/*
+  ShiftRoom design tokens.
+  Dumped from the running application. These are the real values.
+  Consume these only. No raw hex, no rgb(), no Tailwind default colour classes.
+*/
+
+:root {
+	/* ---------------- palette ---------------- */
+	--colors-palette-primary-lighter: #F0E1FD;
+	--colors-palette-primary-lighterChannel: 240 225 253;
+	--colors-palette-primary-light: #E9D5FF;
+	--colors-palette-primary-lightChannel: 233 213 255;
+	--colors-palette-primary-default: #7635DC;
+	--colors-palette-primary-defaultChannel: 118 53 220;
+	--colors-palette-primary-dark: #9334E9;
+	--colors-palette-primary-darkChannel: 147 52 233;
+	--colors-palette-primary-darker: #200A69;
+	--colors-palette-primary-darkerChannel: 32 10 105;
+
+	--colors-palette-error-50: #FFEEEE;
+	--colors-palette-error-50Channel: 255 238 238;
+	--colors-palette-error-lighter: #FFE9D5;
+	--colors-palette-error-lighterChannel: 255 233 213;
+	--colors-palette-error-200: #FFDDDC;
+	--colors-palette-error-200Channel: 255 221 220;
+	--colors-palette-error-light: #FFAC82;
+	--colors-palette-error-lightChannel: 255 172 130;
+	--colors-palette-error-default: #FF5630;
+	--colors-palette-error-defaultChannel: 255 86 48;
+	--colors-palette-error-600: #FF2B27;
+	--colors-palette-error-600Channel: 255 43 39;
+	--colors-palette-error-dark: #B71D18;
+	--colors-palette-error-darkChannel: 183 29 24;
+	--colors-palette-error-darker: #7A0916;
+	--colors-palette-error-darkerChannel: 122 9 22;
+
+	--colors-palette-success-100: #DCFCE7;
+	--colors-palette-success-100Channel: 220 252 231;
+	--colors-palette-success-700: #15803D;
+	--colors-palette-success-700Channel: 21 128 61;
+	--colors-palette-success-lighter: #D8FBDE;
+	--colors-palette-success-lighterChannel: 216 251 222;
+	--colors-palette-success-light: #86E8AB;
+	--colors-palette-success-lightChannel: 134 232 171;
+	--colors-palette-success-default: #36B37E;
+	--colors-palette-success-defaultChannel: 54 179 126;
+	--colors-palette-success-dark: #1B806A;
+	--colors-palette-success-darkChannel: 27 128 106;
+	--colors-palette-success-darker: #0A5554;
+	--colors-palette-success-darkerChannel: 10 85 84;
+
+	--colors-palette-warning-lighter: #FFF5CC;
+	--colors-palette-warning-lighterChannel: 255 245 204;
+	--colors-palette-warning-light: #FFD666;
+	--colors-palette-warning-lightChannel: 255 214 102;
+	--colors-palette-warning-default: #FFAB00;
+	--colors-palette-warning-defaultChannel: 255 171 0;
+	--colors-palette-warning-dark: #B76E00;
+	--colors-palette-warning-darkChannel: 183 110 0;
+	--colors-palette-warning-darker: #7A4100;
+	--colors-palette-warning-darkerChannel: 122 65 0;
+
+	--colors-palette-info-lighter: #CAFDF5;
+	--colors-palette-info-lighterChannel: 202 253 245;
+	--colors-palette-info-light: #61F3F3;
+	--colors-palette-info-lightChannel: 97 243 243;
+	--colors-palette-info-default: #00B8D9;
+	--colors-palette-info-defaultChannel: 0 184 217;
+	--colors-palette-info-dark: #006C9C;
+	--colors-palette-info-darkChannel: 0 108 156;
+	--colors-palette-info-darker: #003768;
+	--colors-palette-info-darkerChannel: 0 55 104;
+
+	--colors-palette-gray-50: #F9FAFB;
+	--colors-palette-gray-50Channel: 249 250 251;
+	--colors-palette-gray-100: #FAFAFA;
+	--colors-palette-gray-100Channel: 250 250 250;
+	--colors-palette-gray-200: #F5F5F5;
+	--colors-palette-gray-200Channel: 245 245 245;
+	--colors-palette-gray-250: #E7E7E7;
+	--colors-palette-gray-250Channel: 231 231 231;
+	--colors-palette-gray-300: #DFE3E8;
+	--colors-palette-gray-300Channel: 223 227 232;
+	--colors-palette-gray-400: #A3A3A3;
+	--colors-palette-gray-400Channel: 163 163 163;
+	--colors-palette-gray-500: #7B7B7B;
+	--colors-palette-gray-500Channel: 123 123 123;
+	--colors-palette-gray-600: #637381;
+	--colors-palette-gray-600Channel: 99 115 129;
+	--colors-palette-gray-700: #454F5B;
+	--colors-palette-gray-700Channel: 69 79 91;
+	--colors-palette-gray-800: #1D1D1F;
+	--colors-palette-gray-800Channel: 29 29 31;
+	--colors-palette-gray-900: #141A21;
+	--colors-palette-gray-900Channel: 20 26 33;
+
+	/* ---------------- common / text / background ---------------- */
+	--colors-common-white: #FFFFFF;
+	--colors-common-whiteChannel: 255 255 255;
+	--colors-common-black: #09090B;
+	--colors-common-blackChannel: 9 9 11;
+	--colors-text-primary: #1D1D1F;
+	--colors-text-primaryChannel: 29 29 31;
+	--colors-text-secondary: #637381;
+	--colors-text-secondaryChannel: 99 115 129;
+	--colors-text-disabled: #7B7B7B;
+	--colors-text-disabledChannel: 123 123 123;
+	--colors-background-default: #FFFFFF;
+	--colors-background-defaultChannel: 255 255 255;
+	--colors-background-paper: #FFFFFF;
+	--colors-background-paperChannel: 255 255 255;
+	--colors-background-neutral: #FAFAFA;
+	--colors-background-neutralChannel: 250 250 250;
+
+	/* ---------------- action ---------------- */
+	--colors-action-hover: rgba(123, 123, 123, 0.1);
+	--colors-action-selected: rgba(123, 123, 123, 0.1);
+	--colors-action-focus: rgba(123, 123, 123, 0.12);
+	--colors-action-disabled: rgba(123, 123, 123, 0.48);
+	--colors-action-active: rgb(123, 123, 123);
+
+	/* ---------------- opacity ---------------- */
+	--opacity-border: 20%;
+	--opacity-hover: 8%;
+	--opacity-selected: 16%;
+	--opacity-focus: 24%;
+	--opacity-disabled: 80%;
+	--opacity-disabledBackground: 24%;
+
+	/* ---------------- radius ---------------- */
+	--borderRadius-none: 0px;
+	--borderRadius-sm: 2px;
+	--borderRadius-default: 4px;
+	--borderRadius-md: 5px;
+	--borderRadius-lg: 7px;
+	--borderRadius-xl: 10px;
+	--borderRadius-full: 9999px;
+	--radius: 0.5rem;
+
+	/* ---------------- spacing ---------------- */
+	--spacing-0: 0px;
+	--spacing-1: 4px;
+	--spacing-2: 8px;
+	--spacing-3: 12px;
+	--spacing-4: 16px;
+	--spacing-5: 20px;
+	--spacing-6: 24px;
+	--spacing-7: 28px;
+	--spacing-8: 32px;
+	--spacing-9: 36px;
+	--spacing-10: 40px;
+	--spacing-12: 48px;
+	--spacing-16: 64px;
+	--spacing-20: 80px;
+	--spacing-24: 96px;
+	--spacing-32: 128px;
+
+	/* ---------------- shadows ---------------- */
+	--shadows-none: none;
+	--shadows-sm: 0 1px 2px 0 rgba(123, 123, 123, 0.16);
+	--shadows-default: 0 4px 8px 0 rgba(123, 123, 123, 0.16);
+	--shadows-md: 0 8px 16px 0 rgba(123, 123, 123, 0.16);
+	--shadows-lg: 0 12px 24px 0 rgba(123, 123, 123, 0.16);
+	--shadows-xl: 0 16px 32px 0 rgba(123, 123, 123, 0.16);
+	--shadows-2xl: 0 20px 40px 0 rgba(123, 123, 123, 0.16);
+	--shadows-3xl: 0 24px 48px 0 rgba(123, 123, 123, 0.16);
+	--shadows-inner: inset 0 2px 4px 0 rgba(123, 123, 123, 0.16);
+	--shadows-card: 0 0 2px 0 rgba(123, 123, 123, 0.2), 0 12px 24px -4px rgba(123, 123, 123, 0.12);
+	--shadows-dropdown: 0 0 2px 0 rgba(123, 123, 123, 0.24), -20px 20px 40px -4px rgba(123, 123, 123, 0.24);
+	--shadows-dialog: -40px 40px 80px -8px rgba(9, 9, 11, 0.24);
+	--shadows-primary: 0 8px 16px 0 rgba(118, 53, 220, 0.24);
+
+	/* ---------------- typography ---------------- */
+	--typography-fontFamily-urbanist: "Urbanist Variable";
+	--typography-fontSize-xs: 12px;
+	--typography-fontSize-sm: 14px;
+	--typography-fontSize-default: 16px;
+	--typography-fontSize-lg: 18px;
+	--typography-fontSize-xl: 20px;
+	--typography-fontSize-2xl: 24px;
+	--typography-fontSize-heading2: 30px;
+	--typography-fontWeight-light: 300;
+	--typography-fontWeight-normal: 400;
+	--typography-fontWeight-medium: 500;
+	--typography-fontWeight-semibold: 600;
+	--typography-fontWeight-bold: 700;
+	--typography-lineHeight-none: 1;
+	--typography-lineHeight-tight: 1.25;
+	--typography-lineHeight-normal: 1.375;
+	--typography-lineHeight-relaxed: 1.5;
+	--typography-lineHeight-2xl: 30px;
+	--typography-lineHeight-heading2: 30px;
+
+	/* ---------------- breakpoints ---------------- */
+	--screens-xs: 375px;
+	--screens-sm: 576px;
+	--screens-md: 768px;
+	--screens-lg: 1024px;
+	--screens-xl: 1280px;
+	--screens-2xl: 1536px;
+
+	/* ---------------- layout ---------------- */
+	--layout-nav-width: 260px;
+	--layout-nav-width-mini: 73px;
+	--layout-header-height: 64px;
+	--layout-nav-height-horizontal: 48px;
+	--layout-multi-tabs-height: 48px;
+
+	/* ---------------- shadcn semantic layer ---------------- */
+	--background: var(--colors-common-white);
+	--foreground: var(--colors-common-black);
+	--white: var(--colors-common-white);
+	--card: var(--colors-common-white);
+	--card-foreground: var(--colors-common-black);
+	--popover: var(--colors-common-white);
+	--popover-foreground: var(--colors-common-black);
+	--primary: var(--colors-palette-primary-default);
+	--primary-foreground: var(--colors-palette-primary-lighter);
+	--secondary: var(--colors-palette-gray-200);
+	--secondary-foreground: var(--colors-palette-gray-600);
+	--muted: var(--colors-palette-gray-200);
+	--muted-foreground: var(--colors-palette-gray-500);
+	--accent: var(--colors-palette-gray-200);
+	--accent-foreground: var(--colors-palette-gray-600);
+	--destructive: var(--colors-palette-error-default);
+	--border: rgba(var(--colors-palette-gray-500Channel) / var(--opacity-border));
+	--input: rgba(var(--colors-palette-gray-500Channel) / var(--opacity-border));
+	--ring: var(--colors-palette-primary-default);
+	--sidebar: var(--colors-palette-gray-200);
+	--sidebar-foreground: var(--colors-palette-gray-800);
+	--sidebar-accent: var(--colors-palette-gray-200);
+	--sidebar-accent-foreground: var(--colors-palette-gray-800);
+	--sidebar-border: var(--colors-palette-gray-200);
+	--sidebar-primary: var(--colors-palette-primary-default);
+	--sidebar-primary-foreground: var(--colors-palette-primary-lighter);
+	--sidebar-ring: var(--colors-palette-primary-default);
+
+	--gradient-primary: linear-gradient(78deg, #9134ea 21.21%, #5146e6 91.01%);
+	--gradient-primary-hover-color: #9334e9;
+	--gradient-primary-pressed-color: #a855f7;
+}
+
+@theme inline {
+	/* ---- palette utilities: bg-primary, text-gray-600, bg-error-600 ---- */
+	--color-primary: rgb(var(--colors-palette-primary-defaultChannel));
+	--color-primary-lighter: rgb(var(--colors-palette-primary-lighterChannel));
+	--color-primary-light: rgb(var(--colors-palette-primary-lightChannel));
+	--color-primary-dark: rgb(var(--colors-palette-primary-darkChannel));
+	--color-primary-darker: rgb(var(--colors-palette-primary-darkerChannel));
+
+	--color-error: rgb(var(--colors-palette-error-defaultChannel));
+	--color-error-600: rgb(var(--colors-palette-error-600Channel));
+	--color-error-light: rgb(var(--colors-palette-error-lightChannel));
+	--color-error-lighter: rgb(var(--colors-palette-error-lighterChannel));
+
+	--color-success: rgb(var(--colors-palette-success-defaultChannel));
+	--color-warning: rgb(var(--colors-palette-warning-defaultChannel));
+	--color-info: rgb(var(--colors-palette-info-defaultChannel));
+
+	--color-gray-50: rgb(var(--colors-palette-gray-50Channel));
+	--color-gray-100: rgb(var(--colors-palette-gray-100Channel));
+	--color-gray-200: rgb(var(--colors-palette-gray-200Channel));
+	--color-gray-250: rgb(var(--colors-palette-gray-250Channel));
+	--color-gray-300: rgb(var(--colors-palette-gray-300Channel));
+	--color-gray-400: rgb(var(--colors-palette-gray-400Channel));
+	--color-gray-500: rgb(var(--colors-palette-gray-500Channel));
+	--color-gray-600: rgb(var(--colors-palette-gray-600Channel));
+	--color-gray-700: rgb(var(--colors-palette-gray-700Channel));
+	--color-gray-800: rgb(var(--colors-palette-gray-800Channel));
+	--color-gray-900: rgb(var(--colors-palette-gray-900Channel));
+
+	--color-common-white: rgb(var(--colors-common-whiteChannel));
+	--color-common-black: rgb(var(--colors-common-blackChannel));
+
+	--color-text-primary: rgb(var(--colors-text-primaryChannel));
+	--color-text-secondary: rgb(var(--colors-text-secondaryChannel));
+	--color-text-disabled: rgb(var(--colors-text-disabledChannel));
+
+	--color-bg-default: rgb(var(--colors-background-defaultChannel));
+	--color-bg-paper: rgb(var(--colors-background-paperChannel));
+	--color-bg-neutral: rgb(var(--colors-background-neutralChannel));
+
+	/* ---- shadcn utilities. note camelCase, matching the project config ---- */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-cardForeground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popoverForeground: var(--popover-foreground);
+	--color-primaryForeground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondaryForeground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-mutedForeground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accentForeground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-sidebar: var(--sidebar);
+	--color-sidebarForeground: var(--sidebar-foreground);
+
+	/* ---- radius: rounded-lg is 7px here, not 8px ---- */
+	--radius-none: var(--borderRadius-none);
+	--radius-sm: var(--borderRadius-sm);
+	--radius-default: var(--borderRadius-default);
+	--radius-md: var(--borderRadius-md);
+	--radius-lg: var(--borderRadius-lg);
+	--radius-xl: var(--borderRadius-xl);
+	--radius-full: var(--borderRadius-full);
+
+	/* ---- type. font-urbanist is the only family ---- */
+	--font-urbanist: var(--typography-fontFamily-urbanist), system-ui, sans-serif;
+
+	--text-xs: var(--typography-fontSize-xs);
+	--text-sm: var(--typography-fontSize-sm);
+	--text-default: var(--typography-fontSize-default);
+	--text-lg: var(--typography-fontSize-lg);
+	--text-xl: var(--typography-fontSize-xl);
+	--text-2xl: var(--typography-fontSize-2xl);
+	--text-heading2: var(--typography-fontSize-heading2);
+
+	--leading-none: var(--typography-lineHeight-none);
+	--leading-tight: var(--typography-lineHeight-tight);
+	--leading-normal: var(--typography-lineHeight-normal);
+	--leading-relaxed: var(--typography-lineHeight-relaxed);
+	--leading-2xl: var(--typography-lineHeight-2xl);
+	--leading-heading2: var(--typography-lineHeight-heading2);
+
+	/* ---- shadows ---- */
+	--shadow-sm: var(--shadows-sm);
+	--shadow-md: var(--shadows-md);
+	--shadow-lg: var(--shadows-lg);
+	--shadow-xl: var(--shadows-xl);
+	--shadow-card: var(--shadows-card);
+	--shadow-dropdown: var(--shadows-dropdown);
+
+	/* ---- breakpoints: sm is 576px here, not 640px ---- */
+	--breakpoint-xs: var(--screens-xs);
+	--breakpoint-sm: var(--screens-sm);
+	--breakpoint-md: var(--screens-md);
+	--breakpoint-lg: var(--screens-lg);
+	--breakpoint-xl: var(--screens-xl);
+	--breakpoint-2xl: var(--screens-2xl);
+}
+
+@layer base {
+	body {
+		background-color: var(--background);
+		color: var(--colors-text-primary);
+		font-family: var(--font-urbanist);
+	}
+}
