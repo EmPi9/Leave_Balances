@@ -6,4 +6,7 @@ dist
 .vite
 tmp-mockup
 tmp-screens
+tmp-zips
+tmp-icons
+public/icons
 

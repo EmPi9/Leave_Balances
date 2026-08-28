@@ -1,4 +1,4 @@
-import { MagniferIcon } from "@/components/icons/solar";
+import { MagniferIcon } from "@/components/icons";
 
 export function EmptyState({ query }: { query: string }) {
   return (

@@ -1,4 +1,4 @@
-import { ArrowUpIcon } from "@/components/icons/solar";
+import { ChevronUpIcon } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 type GroupBarProps = {
@@ -20,13 +20,12 @@ export function GroupBar({ title, level, expanded, onToggle }: GroupBarProps) {
       type="button"
       onClick={onToggle}
       className={cn(
-        "flex h-[var(--spacing-10)] w-auto items-center gap-[var(--spacing-2)] rounded-[var(--borderRadius-xl)] px-[var(--spacing-4)] text-left text-[length:var(--typography-fontSize-sm)] font-[number:var(--typography-fontWeight-semibold)] leading-[var(--typography-lineHeight-normal)] text-[var(--colors-text-primary)] outline-none",
+        "flex h-[var(--spacing-10)] w-full items-center gap-[var(--spacing-2)] rounded-[var(--borderRadius-xl)] px-[var(--spacing-4)] text-left text-[length:var(--typography-fontSize-sm)] font-[number:var(--typography-fontWeight-semibold)] leading-[var(--typography-lineHeight-normal)] text-[var(--colors-text-primary)] outline-none",
         LEVEL_CLASS[level],
       )}
     >
-      <ArrowUpIcon
+      <ChevronUpIcon
         className={cn("shrink-0 text-[var(--colors-text-primary)]", !expanded && "rotate-180")}
-        style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
       />
       {title}
     </button>

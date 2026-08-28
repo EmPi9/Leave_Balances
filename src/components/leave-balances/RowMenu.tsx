@@ -1,4 +1,4 @@
-import { NotesIcon, MenuDotsIcon } from "@/components/icons/solar";
+import { KebabIcon, NotesIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,12 +16,12 @@ export function RowMenu({ employeeName }: { employeeName: string }) {
           aria-label={`Actions for ${employeeName}`}
           className="text-[var(--colors-text-secondary)]"
         >
-          <MenuDotsIcon style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }} />
+          <KebabIcon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
-          <NotesIcon style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }} />
+          <NotesIcon />
           Manual adjustment
         </DropdownMenuItem>
       </DropdownMenuContent>

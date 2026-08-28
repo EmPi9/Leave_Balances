@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { EmptyState } from "@/components/leave-balances/EmptyState";
 import { EmployeesTable } from "@/components/leave-balances/EmployeesTable";
-import { FilterSelect } from "@/components/leave-balances/FilterSelect";
 import { GroupBar } from "@/components/leave-balances/GroupBar";
+import { SearchableFilter } from "@/components/leave-balances/SearchableFilter";
 import { SegmentedTabs } from "@/components/leave-balances/SegmentedTabs";
 import { TableToolbar } from "@/components/leave-balances/TableToolbar";
 import employeesJson from "@/data/employees.json";
@@ -11,16 +11,33 @@ import type { Employee } from "@/types/employee";
 
 const employees = employeesJson as Employee[];
 
-const CHAIN_OPTIONS = [{ value: "all", label: "All" }];
-const LOCATION_OPTIONS = [{ value: "all", label: "All" }];
+const CHAIN_OPTIONS = [
+  { id: "scalini-1", label: "Scalini Group" },
+  { id: "scalini-2", label: "Scalini Group" },
+  { id: "scalini-3", label: "Scalini Group" },
+  { id: "scalini-4", label: "Scalini Group" },
+  { id: "scalini-5", label: "Scalini Group" },
+  { id: "scalini-6", label: "Scalini Group" },
+  { id: "scalini-7", label: "Scalini Group" },
+];
+
+const LOCATION_OPTIONS = [
+  { id: "location-1", label: "Scalini Group" },
+  { id: "location-2", label: "Scalini Group" },
+  { id: "location-3", label: "Scalini Group" },
+  { id: "location-4", label: "Scalini Group" },
+  { id: "location-5", label: "Scalini Group" },
+  { id: "location-6", label: "Scalini Group" },
+  { id: "location-7", label: "Scalini Group" },
+];
 
 const GROUP_IDS = ["level-1", "level-2", "level-3"] as const;
 
 export function LeaveBalancesPage() {
   const [query, setQuery] = useState("");
   const [tab, setTab] = useState<"Head office" | "Restaurants">("Restaurants");
-  const [chain, setChain] = useState("all");
-  const [location, setLocation] = useState("all");
+  const [chainIds, setChainIds] = useState<string[]>([]);
+  const [locationIds, setLocationIds] = useState<string[]>([]);
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
   const filteredEmployees = useMemo(
@@ -53,12 +70,19 @@ export function LeaveBalancesPage() {
       </div>
 
       <div className="mt-[var(--spacing-4)] flex flex-wrap gap-[var(--spacing-3)]">
-        <FilterSelect label="Chain" value={chain} onChange={setChain} options={CHAIN_OPTIONS} />
-        <FilterSelect
+        <SearchableFilter
+          label="Chain"
+          searchPlaceholder="Search Chain"
+          options={CHAIN_OPTIONS}
+          selectedIds={chainIds}
+          onSelectedIdsChange={setChainIds}
+        />
+        <SearchableFilter
           label="Location"
-          value={location}
-          onChange={setLocation}
+          searchPlaceholder="Search Location"
           options={LOCATION_OPTIONS}
+          selectedIds={locationIds}
+          onSelectedIdsChange={setLocationIds}
         />
       </div>
 
@@ -77,7 +101,7 @@ export function LeaveBalancesPage() {
             />
             {level1Open ? (
               <GroupBar
-                title={CHAIN_OPTIONS.find((option) => option.value === chain)?.label ?? "All"}
+                title="All"
                 level={2}
                 expanded={level2Open}
                 onToggle={() => toggleGroup("level-2")}
@@ -85,9 +109,7 @@ export function LeaveBalancesPage() {
             ) : null}
             {level2Open ? (
               <GroupBar
-                title={
-                  LOCATION_OPTIONS.find((option) => option.value === location)?.label ?? "All"
-                }
+                title="All"
                 level={3}
                 expanded={level3Open}
                 onToggle={() => toggleGroup("level-3")}
