@@ -1,4 +1,4 @@
-import { FilePenLine, MoreHorizontal } from "lucide-react";
+import { NotesIcon, MenuDotsIcon } from "@/components/icons/solar";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,18 +16,12 @@ export function RowMenu({ employeeName }: { employeeName: string }) {
           aria-label={`Actions for ${employeeName}`}
           className="text-[var(--colors-text-secondary)]"
         >
-          <MoreHorizontal
-            style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }}
-            strokeWidth={1.75}
-          />
+          <MenuDotsIcon style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
-          <FilePenLine
-            style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-            strokeWidth={1.75}
-          />
+          <NotesIcon style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }} />
           Manual adjustment
         </DropdownMenuItem>
       </DropdownMenuContent>

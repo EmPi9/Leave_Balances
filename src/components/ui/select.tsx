@@ -1,5 +1,5 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { ChevronDown } from "lucide-react";
+import { ArrowDownIcon } from "@/components/icons/solar";
 import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
@@ -26,9 +26,9 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDown
-          className="size-[var(--spacing-4)] shrink-0 text-[var(--colors-text-secondary)]"
-          strokeWidth={1.75}
+        <ArrowDownIcon
+          className="shrink-0 text-[var(--colors-text-secondary)]"
+          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
         />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>

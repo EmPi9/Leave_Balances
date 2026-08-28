@@ -1,4 +1,4 @@
-import { ListFilter, ListTree } from "lucide-react";
+import { ListDownIcon, TuningIcon } from "@/components/icons/solar";
 import { SearchField } from "@/components/leave-balances/SearchField";
 import { cn } from "@/lib/utils";
 
@@ -14,8 +14,8 @@ export function TableToolbar({ query, onQueryChange, onCollapseAll }: TableToolb
       <SearchField value={query} onChange={onQueryChange} />
 
       <div className="flex flex-wrap items-center gap-[var(--spacing-2)]">
-        <ToolbarChip icon={ListFilter}>Filters</ToolbarChip>
-        <ToolbarChip icon={ListTree} onClick={onCollapseAll}>
+        <ToolbarChip icon={TuningIcon}>Filters</ToolbarChip>
+        <ToolbarChip icon={ListDownIcon} onClick={onCollapseAll}>
           Collapse all
         </ToolbarChip>
         <ToolbarChip>Hide Archived</ToolbarChip>
@@ -31,7 +31,7 @@ function ToolbarChip({
   onClick,
 }: {
   children: string;
-  icon?: typeof ListFilter;
+  icon?: typeof TuningIcon;
   onClick?: () => void;
 }) {
   return (
@@ -43,10 +43,7 @@ function ToolbarChip({
       )}
     >
       {Icon ? (
-        <Icon
-          style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-          strokeWidth={1.75}
-        />
+        <Icon style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }} />
       ) : null}
       {children}
     </button>

@@ -1,30 +1,31 @@
 import {
-  BarChart3,
-  Bell,
-  CalendarDays,
-  File,
-  FileText,
-  Folder,
-  Image,
-  Lock,
-  MessageSquare,
-  Search,
-  Sparkle,
-  User,
-} from "lucide-react";
+  BellIcon,
+  BriefcaseIcon,
+  CalendarIcon,
+  CameraIcon,
+  ChartIcon,
+  ChatIcon,
+  DocumentTextIcon,
+  FileTextIcon,
+  MagniferIcon,
+  StarIcon,
+  UserIcon,
+  WalletIcon,
+} from "@/components/icons/solar";
+import { IllustratedAvatar } from "@/components/leave-balances/EmployeeAvatar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const RAIL_ITEMS = [
-  { id: "search", icon: Search, label: "Search", circled: true },
-  { id: "people", icon: User, label: "People" },
-  { id: "docs", icon: FileText, label: "Documents" },
-  { id: "leave", icon: Image, label: "Leave", active: true },
-  { id: "access", icon: Lock, label: "Access" },
-  { id: "reports", icon: BarChart3, label: "Reports" },
-  { id: "files", icon: Folder, label: "Files" },
-  { id: "records", icon: File, label: "Records" },
-  { id: "calendar", icon: CalendarDays, label: "Calendar" },
+  { id: "search", icon: MagniferIcon, label: "Search", circled: true },
+  { id: "people", icon: UserIcon, label: "People" },
+  { id: "docs", icon: DocumentTextIcon, label: "Documents" },
+  { id: "leave", icon: CameraIcon, label: "Leave", active: true },
+  { id: "access", icon: BriefcaseIcon, label: "Jobs" },
+  { id: "reports", icon: ChartIcon, label: "Reports" },
+  { id: "wallet", icon: WalletIcon, label: "Wallet" },
+  { id: "records", icon: FileTextIcon, label: "Records" },
+  { id: "calendar", icon: CalendarIcon, label: "Calendar" },
 ] as const;
 
 const NAV_ITEMS = [
@@ -32,6 +33,8 @@ const NAV_ITEMS = [
   { id: "leave-requests", label: "Leave requests", active: false },
   { id: "public-holidays", label: "Public Holidays", active: false },
 ] as const;
+
+const iconBox = { width: "var(--spacing-5)", height: "var(--spacing-5)" };
 
 export function Sidebar() {
   return (
@@ -61,29 +64,26 @@ export function Sidebar() {
                   isActive &&
                     "rounded-[var(--borderRadius-xl)] bg-[var(--colors-palette-primary-lighter)]",
                   isCircled &&
-                    "rounded-[var(--borderRadius-full)] border border-[var(--colors-palette-primary-dark)] text-[var(--colors-palette-primary-dark)]",
+                    "rounded-[var(--borderRadius-xl)] border border-[var(--colors-palette-primary-dark)] text-[var(--colors-palette-primary-dark)]",
                 )}
                 style={{ width: "var(--spacing-10)", height: "var(--spacing-10)" }}
               >
-                <Icon
-                  style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }}
-                  strokeWidth={1.75}
-                />
+                <Icon style={iconBox} />
               </Button>
             );
           })}
         </nav>
 
         <div className="flex flex-col items-center gap-[var(--spacing-4)]">
-          <IconWithBadge label="Notifications" icon={Bell} />
-          <IconWithBadge label="Messages" icon={MessageSquare} />
+          <IconWithBadge label="Notifications" icon={BellIcon} />
+          <IconWithBadge label="Messages" icon={ChatIcon} />
           <ThemeSwitch />
           <div
-            className="overflow-hidden rounded-[var(--borderRadius-full)] bg-[var(--colors-palette-gray-250)]"
+            className="overflow-hidden rounded-[var(--borderRadius-full)] bg-[var(--colors-palette-gray-200)]"
             style={{ width: "var(--spacing-9)", height: "var(--spacing-9)" }}
             aria-label="Account"
           >
-            <UserSilhouette />
+            <IllustratedAvatar />
           </div>
         </div>
       </div>
@@ -138,7 +138,7 @@ function IconWithBadge({
   icon: Icon,
 }: {
   label: string;
-  icon: typeof Bell;
+  icon: typeof BellIcon;
 }) {
   return (
     <Button
@@ -147,7 +147,7 @@ function IconWithBadge({
       className="relative flex items-center justify-center text-[var(--colors-text-primary)]"
       style={{ width: "var(--spacing-10)", height: "var(--spacing-10)" }}
     >
-      <Icon style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }} strokeWidth={1.75} />
+      <Icon style={iconBox} />
       <span
         className="absolute rounded-[var(--borderRadius-full)] bg-[var(--colors-palette-primary-default)]"
         style={{
@@ -176,17 +176,8 @@ function ThemeSwitch() {
           left: "var(--spacing-1)",
         }}
       >
-        <Sparkle style={{ width: "var(--spacing-3)", height: "var(--spacing-3)" }} strokeWidth={2} />
+        <StarIcon style={{ width: "var(--spacing-3)", height: "var(--spacing-3)" }} />
       </span>
     </div>
-  );
-}
-
-function UserSilhouette() {
-  return (
-    <svg viewBox="0 0 36 36" className="h-full w-full text-[var(--colors-palette-gray-500)]">
-      <circle cx="18" cy="14" r="6" fill="currentColor" />
-      <path d="M6 32c1.8-7 7-10 12-10s10.2 3 12 10" fill="currentColor" />
-    </svg>
   );
 }

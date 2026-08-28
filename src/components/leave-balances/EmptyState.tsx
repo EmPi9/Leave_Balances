@@ -1,4 +1,4 @@
-import { SearchX } from "lucide-react";
+import { MagniferIcon } from "@/components/icons/solar";
 
 export function EmptyState({ query }: { query: string }) {
   return (
@@ -7,7 +7,7 @@ export function EmptyState({ query }: { query: string }) {
         className="flex items-center justify-center rounded-[var(--borderRadius-full)] bg-[var(--colors-palette-gray-200)] text-[var(--colors-text-disabled)]"
         style={{ width: "var(--spacing-16)", height: "var(--spacing-16)" }}
       >
-        <SearchX style={{ width: "var(--spacing-8)", height: "var(--spacing-8)" }} strokeWidth={1.5} />
+        <MagniferIcon style={{ width: "var(--spacing-8)", height: "var(--spacing-8)" }} />
       </div>
       <p className="mt-[var(--spacing-4)] text-[length:var(--typography-fontSize-lg)] font-[number:var(--typography-fontWeight-semibold)] leading-[var(--typography-lineHeight-normal)] text-[var(--colors-text-primary)]">
         No employees found

@@ -1,4 +1,4 @@
-import { ChevronUp } from "lucide-react";
+import { ArrowUpIcon } from "@/components/icons/solar";
 import { cn } from "@/lib/utils";
 
 type GroupBarProps = {
@@ -24,13 +24,9 @@ export function GroupBar({ title, level, expanded, onToggle }: GroupBarProps) {
         LEVEL_CLASS[level],
       )}
     >
-      <ChevronUp
-        className={cn(
-          "shrink-0 text-[var(--colors-text-primary)]",
-          !expanded && "rotate-180",
-        )}
+      <ArrowUpIcon
+        className={cn("shrink-0 text-[var(--colors-text-primary)]", !expanded && "rotate-180")}
         style={{ width: "var(--spacing-4)", height: "var(--spacing-4)" }}
-        strokeWidth={2}
       />
       {title}
     </button>

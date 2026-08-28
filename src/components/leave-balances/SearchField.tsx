@@ -1,4 +1,4 @@
-import { FileUp } from "lucide-react";
+import { FileSendIcon } from "@/components/icons/solar";
 import { Input } from "@/components/ui/input";
 
 type SearchFieldProps = {
@@ -12,11 +12,10 @@ export function SearchField({ value, onChange }: SearchFieldProps) {
       className="relative block min-w-0"
       style={{ width: "calc(var(--spacing-32) * 2 + var(--spacing-16))" }}
     >
-      <FileUp
+      <FileSendIcon
         aria-hidden
         className="pointer-events-none absolute top-1/2 left-[var(--spacing-3)] -translate-y-1/2 text-[var(--colors-text-secondary)]"
         style={{ width: "var(--spacing-5)", height: "var(--spacing-5)" }}
-        strokeWidth={1.75}
       />
       <Input
         value={value}
