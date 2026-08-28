@@ -1,10 +1,6 @@
 import { SearchX } from "lucide-react";
 
-type EmptyStateProps = {
-  query: string;
-};
-
-export function EmptyState({ query }: EmptyStateProps) {
+export function EmptyState({ query }: { query: string }) {
   return (
     <div className="flex flex-col items-center justify-center px-[var(--spacing-6)] py-[var(--spacing-16)] text-center">
       <div

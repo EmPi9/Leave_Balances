@@ -7,9 +7,18 @@
 		height: 100%;
 	}
 
+	:root {
+		--colors-surface-muted: color-mix(
+			in srgb,
+			var(--colors-palette-primary-lighter) 32%,
+			var(--colors-common-white)
+		);
+		--layout-shell-radius: var(--spacing-4);
+	}
+
 	body {
 		margin: 0;
-		background-color: var(--colors-background-neutral);
+		background-color: var(--colors-palette-gray-200);
 		color: var(--colors-text-primary);
 		font-family: var(--font-urbanist);
 		font-synthesis: none;

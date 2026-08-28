@@ -4,3 +4,6 @@ dist
 *.local
 .vercel
 .vite
+tmp-mockup
+tmp-screens
+
